@@ -64,7 +64,8 @@ export const deleteCategory = async (id) => {
 
 // Update a category
 export const updateCategory = async (id, data) => {
-  const response = await api.put(`/category/${id}`, data);
+const payload = { ...data, categoryId: id }; // ✅ include id in body
+  const response = await api.put(`/category`, payload); // ✅ backend expects /category (not /category/{id})
   return response.data;
 };
 
