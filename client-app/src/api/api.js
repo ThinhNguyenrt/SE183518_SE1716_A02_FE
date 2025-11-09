@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api', // Proxied
+  baseURL: 'https://localhost:7176/api', // Proxied
 });
 
 // Auto-attach JWT to every request
@@ -40,6 +40,32 @@ export const updateUser = async (id, userData) => {
 
 export const deleteUser = async (id) => {
   await api.delete(`/users/${id}`);
+};
+// =====================
+// ✅ CATEGORY API
+// =====================
+
+// Get all categories
+export const getCategories = async () => {
+  const response = await api.get('/category');
+  return response.data;
+};
+
+export const createCategory = async (data) => {
+  const res = await api.post("/category", data);
+  return res.data;
+};
+
+// Delete a category
+export const deleteCategory = async (id) => {
+  const response = await api.delete(`/category/${id}`);
+  return response.data;
+};
+
+// Update a category
+export const updateCategory = async (id, data) => {
+  const response = await api.put(`/category/${id}`, data);
+  return response.data;
 };
 
 // Add more: categories, news, reports, etc.

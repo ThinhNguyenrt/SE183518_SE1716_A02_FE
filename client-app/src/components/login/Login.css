@@ -1,0 +1,84 @@
+.glass-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Glass box effect */
+.glass-box {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 2.5rem;
+  width: 360px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+}
+
+.glass-box h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.glass-box label {
+  display: block;
+  text-align: left;
+  margin: 10px 0 5px;
+  font-size: 0.9rem;
+}
+
+.glass-box input {
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  outline: none;
+  transition: background 0.2s;
+}
+
+.glass-box input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.glass-box input:focus {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Button */
+.glass-box button {
+  width: 100%;
+  padding: 10px;
+  background: #ff4081;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.glass-box button:hover {
+  background: #e73370;
+}
+
+/* Error and footer */
+.error-text {
+  color: #ffbaba;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+.footer-text {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
