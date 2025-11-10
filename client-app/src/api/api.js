@@ -75,7 +75,7 @@ const payload = { ...data, categoryId: id }; // ✅ include id in body
 // Get all news articles
 export const getNewsArticles = async () => {
   const response = await api.get("/newsarticle");
-  return response.data;
+  return response.data.data;
 };
 
 // Create a new article
@@ -94,6 +94,14 @@ export const updateNewsArticle = async (id, data) => {
 // Delete an article
 export const deleteNewsArticle = async (id) => {
   const response = await api.delete(`/newsarticle/${id}`);
+  return response.data;
+};
+
+// =====================
+// Accounts
+// =====================
+export const getAccounts = async () => {
+  const response = await api.get('/account');
   return response.data;
 };
 // Add more: categories, news, reports, etc.

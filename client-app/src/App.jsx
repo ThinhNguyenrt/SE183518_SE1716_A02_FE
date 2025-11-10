@@ -6,6 +6,7 @@ import StaffLayout from "./layouts/StaffLayout";
 import StaffDashboard from "./pages/staff/StaffDashboard";
 import ManageCategories from "./pages/staff/ManageCategories";
 import ManageNews from "./pages/staff/ManageNews";
+import ManageAccount from "./pages/admin/ManageAccount";
 function App() {
   const role = Number(localStorage.getItem("role"));
 
@@ -14,9 +15,10 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage />} />
 
-        {role === 0 && (
+        {role === 3 && (
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<h1>Admin Dashboard</h1>} />
+            <Route path="manage-accounts" element={<ManageAccount />} />
           </Route>
         )}
 
