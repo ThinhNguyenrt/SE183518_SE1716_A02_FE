@@ -68,6 +68,33 @@ const payload = { ...data, categoryId: id }; // ✅ include id in body
   const response = await api.put(`/category`, payload); // ✅ backend expects /category (not /category/{id})
   return response.data;
 };
+// =====================
+// ✅ NEWS API
+// =====================
 
+// Get all news articles
+export const getNewsArticles = async () => {
+  const response = await api.get("/newsarticle");
+  return response.data;
+};
+
+// Create a new article
+export const createNewsArticle = async (data) => {
+  const response = await api.post("/newsarticle", data);
+  return response.data;
+};
+
+// Update existing article
+export const updateNewsArticle = async (id, data) => {
+  const payload = { ...data, newsArticleId: id }; // include ID in body if backend expects it
+  const response = await api.put("/newsarticle", payload); // PUT to /newsarticle (not /newsarticle/{id})
+  return response.data;
+};
+
+// Delete an article
+export const deleteNewsArticle = async (id) => {
+  const response = await api.delete(`/newsarticle/${id}`);
+  return response.data;
+};
 // Add more: categories, news, reports, etc.
 export default api;
