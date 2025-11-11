@@ -19,28 +19,11 @@ export const loginUser = async (credentials) => {
 };
 
 export const getProfile = async () => {
-  const response = await api.get('/users/me');
-  return response.data;
+  const response = await api.get('/auth/profile');
+  return response.data.data;
 };
 
-export const getUsers = async () => {
-  const response = await api.get('/users');
-  return response.data;
-};
 
-export const createUser = async (userData) => {
-  const response = await api.post('/users', userData);
-  return response.data;
-};
-
-export const updateUser = async (id, userData) => {
-  const response = await api.put(`/users/${id}`, userData);
-  return response.data;
-};
-
-export const deleteUser = async (id) => {
-  await api.delete(`/users/${id}`);
-};
 // =====================
 // ✅ CATEGORY API
 // =====================
@@ -104,5 +87,24 @@ export const getAccounts = async () => {
   const response = await api.get('/account');
   return response.data;
 };
+// Create account
+export const createAccount = async (data) => {
+  const response = await api.post("/account", data);
+  return response.data;
+};
+
+// Update account
+export const updateAccount = async (id, data) => {
+  const payload = { ...data, accountId: id };
+  const response = await api.put(`/account/${id}`, payload);
+  return response.data;
+};
+
+// Delete account
+export const deleteAccountById = async (id) => {
+  const response = await api.delete(`/account/${id}`);
+  return response.data;
+};
+
 // Add more: categories, news, reports, etc.
 export default api;

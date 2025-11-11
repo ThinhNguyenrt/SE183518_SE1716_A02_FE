@@ -134,6 +134,20 @@ const ManageNews = () => {
           <option value="true">Active</option>
           <option value="false">Inactive</option>
         </select>
+        <input
+          name="tagIds"
+          placeholder="Tag IDs (comma separated)"
+          value={form.tagIds.join(",")} // ✅ hiển thị lại thành chuỗi
+          onChange={(e) =>
+            setForm({
+              ...form,
+              tagIds: e.target.value
+                .split(",")
+                .map((id) => id.trim())
+                .filter((id) => id !== ""), // loại bỏ ô trống
+            })
+          }
+        />
 
         <button type="submit">
           {isEditing ? "Update News" : "Create News"}

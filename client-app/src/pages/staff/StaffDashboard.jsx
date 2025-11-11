@@ -1,11 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // 1. Import useNavigate
 import "./StaffDashboard.css";
 
 export default function StaffDashboard() {
+  // 2. Initialize the navigate function
+  const navigate = useNavigate(); 
+  
   const userRole = localStorage.getItem("role");
   const user = JSON.parse(localStorage.getItem("user"));
   const userEmail = user?.accountEmail;
   const userName = user?.accountName;
+
+  // 3. Define the navigation handler
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
 
   return (
     <div className="dashboard-container">
@@ -23,25 +32,34 @@ export default function StaffDashboard() {
         <div className="dashboard-card">
           <h3>📂 Manage Categories</h3>
           <p>Organize and update your news categories.</p>
-          <button>Go to Categories</button>
+          {/* 4. Use the handler with the target path */}
+          <button onClick={() => handleNavigation("/staff/categories")}>
+            Go to Categories
+          </button>
         </div>
 
         <div className="dashboard-card">
           <h3>📰 Manage News</h3>
           <p>Create, edit, and publish your latest articles.</p>
-          <button>Go to News</button>
+          <button onClick={() => handleNavigation("/staff/news")}>
+            Go to News
+          </button>
         </div>
 
         <div className="dashboard-card">
           <h3>👤 View Profile</h3>
           <p>Review your account details and preferences.</p>
-          <button>View Profile</button>
+          <button onClick={() => handleNavigation("/staff/profile")}>
+            View Profile
+          </button>
         </div>
 
         <div className="dashboard-card">
           <h3>📜 News History</h3>
           <p>View your previous submissions and edits.</p>
-          <button>View History</button>
+          <button onClick={() => handleNavigation("/staff/history")}>
+            View History
+          </button>
         </div>
       </div>
     </div>

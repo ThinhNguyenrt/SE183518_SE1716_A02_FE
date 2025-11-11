@@ -7,6 +7,7 @@ import StaffDashboard from "./pages/staff/StaffDashboard";
 import ManageCategories from "./pages/staff/ManageCategories";
 import ManageNews from "./pages/staff/ManageNews";
 import ManageAccount from "./pages/admin/ManageAccount";
+import ManageProfile from "./pages/staff/ManageProfile";
 function App() {
   const role = Number(localStorage.getItem("role"));
 
@@ -27,6 +28,7 @@ function App() {
             <Route index element={<StaffDashboard />} />
             <Route path="categories" element={<ManageCategories />} />
             {<Route path="news" element={<ManageNews />} />}
+            <Route path="profile" element={<ManageProfile />} />
           </Route>
         )}
 

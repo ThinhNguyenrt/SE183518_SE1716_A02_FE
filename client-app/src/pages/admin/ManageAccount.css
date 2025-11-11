@@ -1,46 +1,36 @@
-/* src/pages/admin/ManageAccounts.css */
-
+/* ===== ManageAccounts Container ===== */
 .manage-acc-container {
-  padding: 20px;
+  padding: 24px;
+  font-family: "Inter", sans-serif;
 }
 
-h1 {
-  font-size: 26px;
-  margin-bottom: 20px;
+/* Title */
+.manage-acc-container h1 {
+  font-size: 28px;
+  margin-bottom: 22px;
+  font-weight: 600;
+  color: #003366;
 }
 
+/* Top actions */
 .top-actions {
-  margin-bottom: 15px;
-}
-
-.acc-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.acc-table th,
-.acc-table td {
-  padding: 12px 14px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-.acc-table th {
-  background: #003366;
-  color: #fff;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .btn {
-  padding: 6px 12px;
-  border-radius: 5px;
+  padding: 8px 14px;
+  border-radius: 6px;
   cursor: pointer;
   border: none;
   font-size: 14px;
-  margin-right: 6px;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.85;
 }
 
 .btn.add {
@@ -49,7 +39,7 @@ h1 {
 }
 
 .btn.update {
-  background: #f0ad4e;
+  background: #ffb84d;
   color: white;
 }
 
@@ -61,4 +51,101 @@ h1 {
 .btn.delete:disabled {
   background: #ccc;
   cursor: not-allowed;
+}
+
+/* ===== Table ===== */
+.acc-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.07) 0 4px 12px;
+}
+
+.acc-table th {
+  padding: 14px;
+  background: #003366;
+  color: #fff;
+  font-weight: 600;
+  text-align: left;
+}
+
+.acc-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.acc-table tr:hover {
+  background: #f8faff;
+}
+
+/* ===== Delete box ===== */
+.delete-box {
+  margin: 15px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.delete-box input {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  flex: 1;
+}
+
+/* ===== Popup modal ===== */
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  width: 380px;
+  background: white;
+  padding: 26px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0 4px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeIn 0.3s ease;
+}
+
+.popup-content h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #003366;
+  font-weight: 600;
+}
+
+.popup-content input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+/* Popup actions */
+.popup-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.btn.cancel {
+  background: gray;
+  color: white;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
